@@ -1,10 +1,16 @@
 import React from 'react';
+import {BsSearch} from 'react-icons/bs';
 import './styles.css';
 
 const Navbar = ()=> {
   return(
-    <div>
-      <h1>Soy una Navbar</h1>
+    <div className='navbar--header'>
+      <form className="form_navbar--header">
+        <input type="text" className="input_navbar--header" placeholder='Busca..' />
+        <button className='btn_navbar--header'>
+          <BsSearch className='icon_search-navbar--header' />
+        </button>
+      </form>
     </div>
   );
 };
