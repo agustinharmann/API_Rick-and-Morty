@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import {RxDoubleArrowLeft} from 'react-icons/rx';
-import {RxDoubleArrowRight} from 'react-icons/rx';
+import { RxDoubleArrowLeft } from 'react-icons/rx';
+import { RxDoubleArrowRight } from 'react-icons/rx';
 import { Card } from '../Card';
 import './styles.css';
 
@@ -39,8 +39,8 @@ const Home = () => {
     pagination <= 41 && setPagination(pagination + 1);
   };
 
-  console.log(info);
-  console.log(info.next);
+  // console.log(info);
+  // console.log(info.next);
 
   //MANDAR TODO COMO HELPER
 
@@ -52,7 +52,7 @@ const Home = () => {
   // console.log(characters);
 
 
-  
+
 
 
 
@@ -70,13 +70,21 @@ const Home = () => {
         }
       </div>
       <div className='pagination__home'>
-        <button className={ pagination <= 1 ? 'btn_prev--pagination_home__disable' : 'btn_prev--pagination_home'} onClick={prev}>
+
+        <button
+          className={pagination <= 1 ? 'btn_prev--pagination_home__disable' : 'btn_prev--pagination_home'}
+          onClick={prev}>
           <RxDoubleArrowLeft className='prev_doble_arrow--pagination_home' />
         </button>
+
         <div className='status--pagination'>{pagination}</div>
-        <button className={ pagination >= 42 ? 'btn_next--pagination_home__disable' : 'btn_next--pagination_home'}  onClick={next}>
+
+        <button
+          className={pagination >= 42 ? 'btn_next--pagination_home__disable' : 'btn_next--pagination_home'}
+          onClick={next}>
           <RxDoubleArrowRight className='next_doble_arrow--pagination_home' />
         </button>
+
       </div>
     </div>
   );

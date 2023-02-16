@@ -21,7 +21,7 @@ const Card = ({ results }) => {
           <img className='img--card' src={results.image} alt="" />
         </div>
         <div className="container_basic-info--card">
-          <p>{results.name}</p>
+          <p className='info__card'>{results.name}</p>
         </div>
       </div>
       {/* {
