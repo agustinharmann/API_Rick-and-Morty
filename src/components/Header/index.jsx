@@ -10,7 +10,9 @@ const Header = () => {
       <div className="container_logo--header">
         <img className='logo--header' src={logo_header} alt="" />
       </div>
+      
       <Navbar />
+      
       <div className="container_menu--header">
         <CgMenu className='menu--header' />
       </div>

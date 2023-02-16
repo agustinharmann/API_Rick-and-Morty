@@ -6,7 +6,7 @@ const Card = ({ results }) => {
   // console.log(results.results);
   // const character = results.results;
   // console.log(character);
-  console.log(results);
+  // console.log(results);
   return (
     <div>
       {/* {
