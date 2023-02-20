@@ -1,10 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { RxDoubleArrowLeft } from 'react-icons/rx';
 import { RxDoubleArrowRight } from 'react-icons/rx';
+import { UserContext } from '../../utils/useContext';
 import { Card } from '../Card';
 import './styles.css';
 
 const Home = () => {
+
+  const {saludo} = useContext(UserContext);
 
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
