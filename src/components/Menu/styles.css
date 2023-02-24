@@ -1,0 +1,66 @@
+@import './styles.mobile.css';
+
+.menu {
+  /* border: 1px solid green; */
+  width: 600px;
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+  /* display: flex; */
+  /* width: 100%;
+  max-width: 600px;
+  height: 50px;
+  display: flex;
+  border: 1px solid green; */
+  /* flex-wrap: wrap; */
+}
+
+.title--dropdown {
+  color: rgb(252, 84, 23);
+  font-size: 25px;
+  /* width: auto;
+  height: auto;
+   */
+  /* margin: 0px 10px 10px 0px; */
+  /*  */
+  /* display: flex; */
+}
+
+.list_search--dropdown {
+  /* border: 1px solid red; */
+  width: 100%;
+  height: auto;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  /* width: 100%;
+  height: auto;
+  list-style: none;
+  display: flex;
+  border: 1px solid orangered; */
+}
+
+.element_search--dropdown {
+  border: 1px solid orange;
+  width: 100%;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* width: 100%;
+  height: 50px;
+  margin: 10px 12px;
+  font-size: 20px;
+  display: flex; */
+}
+
+.menu a {
+  text-decoration: none;
+  color: #FFFFFF;
+}
+
+/* @media only screen and (max-width: 765px) {
+  .menu {
+    display: none;
+  }
+} */

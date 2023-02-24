@@ -8,7 +8,7 @@ const Navbar = () => {
   const { name, input_search, getByName } = useContext(UserContext);
 
   return (
-    <div className='navbar--header'>
+    <div className='search--header'>
       <form className='form_navbar--header'>
         <input
           className='input_navbar--header'
@@ -25,7 +25,7 @@ const Navbar = () => {
         >
           <BsSearch className='icon_search-navbar--header' />
         </button>
-      </form>
+      </form> 
     </div>
   );
 };
