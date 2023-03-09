@@ -7,7 +7,7 @@ const Results = () => {
 
   const { data } = useContext(UserContext);
   const { results } = data;
-  // console.log(results);
+
 
   return (
     <div className="cards__home">

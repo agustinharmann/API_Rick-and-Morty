@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { RxDoubleArrowLeft } from 'react-icons/rx';
 import { RxDoubleArrowRight } from 'react-icons/rx';
 import { UserContext } from '../../utils/useContext';
@@ -9,12 +9,15 @@ import './styles.css';
 
 const Home = () => {
 
-  const { data, loading, prevPage, nextPage } = useContext(UserContext);
+  const { data, loading, prevPage, nextPage, setNavigator } = useContext(UserContext);
   const { info } = data;
 
   // const medidas = window.screen.width;
   // console.log(medidas);
-
+  
+  useEffect(() => {
+    setNavigator('Home')
+  }, [setNavigator])
 
   if (loading) {
     return <div>Cargando...</div>;

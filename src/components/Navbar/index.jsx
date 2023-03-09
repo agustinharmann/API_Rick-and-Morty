@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { BsSearch } from 'react-icons/bs';
 import { UserContext } from '../../utils/useContext';
+import { Menu } from '../Menu';
 import './styles.css';
 
 const Navbar = () => {
@@ -8,7 +9,7 @@ const Navbar = () => {
   const { name, input_search, getByName } = useContext(UserContext);
 
   return (
-    <div className='search--header'>
+    <div className='search_navbar--header'>
       <form className='form_navbar--header'>
         <input
           className='input_navbar--header'
@@ -25,7 +26,10 @@ const Navbar = () => {
         >
           <BsSearch className='icon_search-navbar--header' />
         </button>
-      </form> 
+      </form>
+      <div className='menu--header'>
+        <Menu />
+      </div>
     </div>
   );
 };
