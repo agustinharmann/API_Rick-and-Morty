@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from 'react';
 import { RxDoubleArrowLeft } from 'react-icons/rx';
 import { RxDoubleArrowRight } from 'react-icons/rx';
 import { UserContext } from '../../utils/useContext';
+import { Error } from '../Error';
 import { Results } from '../Results';
 
 import './styles.css';
@@ -9,7 +10,7 @@ import './styles.css';
 
 const Home = () => {
 
-  const { data, loading, prevPage, nextPage, setNavigator } = useContext(UserContext);
+  const { data, loading, prevPage, nextPage, setNavigator, error } = useContext(UserContext);
   const { info } = data;
 
   // const medidas = window.screen.width;
@@ -24,7 +25,7 @@ const Home = () => {
   }
 
   return (
-    <div className='home'>
+    <div className='home'> { error && <Error /> }
       <Results />
       <div className='pagination__home'>
         {/* AGREGAR CONDICIONAL PARA LOS BOTONES SINO ROMPE CUANDO SE BUSCA CUANDO ALGO NO EXISTE */}

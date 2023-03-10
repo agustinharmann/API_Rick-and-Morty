@@ -8,16 +8,14 @@ const Menu = () => {
   const { specie, status, gender, setStatus, setSpecie, setGenre } = useContext(UserContext);
 
   const species = ["Human", "Alien", "Humanoid", "Poopybutthole", "Mythological", "Unknown", "Animal", "Disease", "Robot", "Cronenberg", "Planet"];
+  
+  // convertir en array los otros dos
 
-  // const [ width, setWidth ] = useState(0);
-
-  // useEffect(()=>{
-  //   setWidth(window.innerWidth)
-  // }, [])
-  // console.log(width);
-
-  // const find = species.find(element => element === 'Alien')
-  // console.log(find);
+  const onCleanFilters = () => {
+    setStatus('');
+    setSpecie('');
+    setGenre('');
+  };
 
   return (
     <div className='menu'>
@@ -29,9 +27,9 @@ const Menu = () => {
         <div className='element_search--dropdown'>
           Status
           <div className="dropdown">
-            <p className='element--dropdown' value={'p'} onClick={() => setStatus('alive')}>Alive</p>
-            <p className='element--dropdown' value={'p'} onClick={() => setStatus('dead')}>Dead</p>
-            <p className='element--dropdown' value={'p'} onClick={() => setStatus('unknown')}>Unknown</p>
+            <p className='element--dropdown' onClick={() => setStatus('Alive')}>Alive</p>
+            <p className='element--dropdown' onClick={() => setStatus('dead')}>Dead</p>
+            <p className='element--dropdown' onClick={() => setStatus('unknown')}>Unknown</p>
           </div>
         </div>
         <div className='element_search--dropdown'>
@@ -60,9 +58,11 @@ const Menu = () => {
       {/* {(specie.length >= 1 || status.length >= 1 || gender.length >= 1) &&
         } */}
       <div className='content_filters--filters'>
-        <button onClick={() => setStatus('')}>{ status }</button>
-        <button onClick={() => setSpecie('')}>{ specie }</button>
-        <button onClick={() => setGenre('')}>{ gender }</button>
+        { status && <button className='btn-filyrt_actives--filters' onClick={() => setStatus('')}>{ status }</button> }
+        { specie && <button className='btn-filyrt_actives--filters' onClick={() => setSpecie('')}>{ specie }</button> }
+        { gender && <button className='btn-filyrt_actives--filters' onClick={() => setGenre('')}>{ gender }</button> }
+        
+        <button onClick={onCleanFilters }> Clean filters </button>
       </div>
     </div>
   );

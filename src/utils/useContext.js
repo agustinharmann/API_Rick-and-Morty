@@ -1,4 +1,5 @@
 import { createContext, useState, useEffect } from 'react';
+import { Error } from '../components/Error';
 
 const UserContext = createContext();
 
@@ -6,6 +7,7 @@ const UserProvider = ({ children }) => {
 
   //pasar a funcion donde despues de api (setApi()) reciba el parametro de lo que queremos mostrar
   const [loading, setLoading] = useState(true);
+  const [ error, setError ] = useState(false)
   const [data, setData] = useState([]);
   const [name, setName] = useState('');
   const [status, setStatus] = useState('');
@@ -54,13 +56,28 @@ const UserProvider = ({ children }) => {
     fetchData()
   }, [api]);
 
+  // const getByName = async (e) => {
+  //   e.preventDefault();
+  //   const resp = await fetch(`https://rickandmortyapi.com/api/character/?name=${name}&status=${status}&species=${specie}&gender=${gender}`);
+  //   const data = await resp.json();
+  //   setData(data);
+  //   console.log(resp);
+  // }
+
   const getByName = async (e) => {
     e.preventDefault();
-    const resp = await fetch(`https://rickandmortyapi.com/api/character/?name=${name}&status=${status}&species=${specie}&gender=${gender}`);
-    const data = await resp.json();
-    setData(data);
-    setName('');
-    console.log(resp);
+    try {
+      const resp = await fetch(`https://rickandmortyapi.com/api/character/?name=${name}&status=${status}&species=${specie}&gender=${gender}`);
+      if (resp.ok) {
+        const data = await resp.json();
+        setData(data);
+        console.log(resp);
+      } else {
+        throw new Error('Error al obtener los datos');
+      }
+    } catch (error) {
+      setError(true);
+    }
   }
 
   // const getDrop = () => {
@@ -74,6 +91,7 @@ const UserProvider = ({ children }) => {
   const nextPage = () => {
     info.next && setApi(info.next);
   };
+
 
   // ENVIAR RESULTS DE UNA A HOME Y A CARD PARA NO DESESTRUCTURAR DATA ALLA
 
@@ -103,6 +121,8 @@ const UserProvider = ({ children }) => {
         setStatus,
         setSpecie,
         setGenre,
+        error,
+        setError,
         // drop,
         // getDrop,
         prevPage,

@@ -93,3 +93,9 @@
   border: 1px solid darkorange;
 }
 
+.btn-filyrt_actives--filters {
+  width: auto;
+  height: auto;
+  padding: 4px;
+  margin: 4px;
+}
