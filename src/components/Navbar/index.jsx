@@ -4,9 +4,12 @@ import { UserContext } from '../../utils/useContext';
 import { Menu } from '../Menu';
 import './styles.css';
 
+
 const Navbar = () => {
 
-  const { name, input_search, getByName } = useContext(UserContext);
+
+  const { name, input_search, getByName, windowWidth } = useContext(UserContext);
+
 
   return (
     <div className='search_navbar--header'>
@@ -27,11 +30,18 @@ const Navbar = () => {
           <BsSearch className='icon_search-navbar--header' />
         </button>
       </form>
-      <div className='menu--header'>
-        <Menu />
-      </div>
+
+      
+      {windowWidth > 768 ?
+        <div className='menu--header'>
+          <Menu />
+        </div>
+        : null}
+
+        
     </div>
   );
 };
 
 export { Navbar };
+

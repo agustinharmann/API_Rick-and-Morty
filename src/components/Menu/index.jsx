@@ -1,15 +1,18 @@
-// import { useEffect, useState } from 'react';
+import React from 'react';
 import { useContext } from 'react';
 import { UserContext } from '../../utils/useContext';
+// import './styles.mobile.css'
 import './styles.css';
 
 const Menu = () => {
 
-  const { specie, status, gender, setStatus, setSpecie, setGenre } = useContext(UserContext);
+  const { status, specie, gender, setStatus, setSpecie, setGenre } = useContext(UserContext);
 
-  const species = ["Human", "Alien", "Humanoid", "Poopybutthole", "Mythological", "Unknown", "Animal", "Disease", "Robot", "Cronenberg", "Planet"];
-  
-  // convertir en array los otros dos
+  const characterStatus = ['Alive', 'Dead', 'Unknow'];
+
+  const characterSpecie = ['Human', 'Alien', 'Humanoid', 'Poopybutthole', 'Mythological', 'Unknown', 'Animal', 'Disease', 'Robot', 'Cronenberg', 'Planet'];
+
+  const characterGender = ['Female', 'Male', 'Genderless', 'Unknow'];
 
   const onCleanFilters = () => {
     setStatus('');
@@ -23,47 +26,44 @@ const Menu = () => {
         <li className='element_search--dropdown'>
           <p className='title--dropdown'>Filters</p>
         </li>
-        {/* optimizar con el doble andpersent */}
-        <div className='element_search--dropdown'>
+        <li className='element_search--dropdown'>
           Status
-          <div className="dropdown">
-            <p className='element--dropdown' onClick={() => setStatus('Alive')}>Alive</p>
-            <p className='element--dropdown' onClick={() => setStatus('dead')}>Dead</p>
-            <p className='element--dropdown' onClick={() => setStatus('unknown')}>Unknown</p>
-          </div>
-        </div>
-        <div className='element_search--dropdown'>
-          Species
-          <div className="dropdown">
+          <ul className='dropdown'>
             {
-              species.map((s, i) => <p key={i} className='element--dropdown' onClick={() => setSpecie(`${s}`)}> {s} </p>)
+              characterStatus.map((s, i) => <li key={i} className='element--dropdown' onClick={() => setStatus(`${s}`)}> {s} </li>)
             }
-          </div>
-        </div>
-        <div className='element_search--dropdown'>
+          </ul>
+        </li>
+        <li className='element_search--dropdown'>
+          Species
+          <ul className='dropdown'>
+            {
+              characterSpecie.map((s, i) => <li key={i} className='element--dropdown' onClick={() => setSpecie(`${s}`)}> {s} </li>)
+            }
+          </ul>
+        </li>
+        <li className='element_search--dropdown'>
           Gender
-          <div className="dropdown">
-            <p className='element--dropdown' onClick={() => setGenre('female')}>Female</p>
-            <p className='element--dropdown' onClick={() => setGenre('male')}>Male</p>
-            <p className='element--dropdown' onClick={() => setGenre('genderless')}>Genderless</p>
-            <p className='element--dropdown' onClick={() => setGenre('unknown')}>Unknown</p>
-          </div>
-        </div>
-        {/* <NavLink
-          className={ ({isActive}) => `element_search--dropdown ${isActive ? 'active' : ''}` }
-          to='location'>
-          location
-        </NavLink> */}
+          <ul className='dropdown'>
+            {
+              characterGender.map((s, i) => <li key={i} className='element--dropdown' onClick={() => setGenre(`${s}`)}> {s} </li>)
+            }
+          </ul>
+        </li>
       </ul>
-      {/* {(specie.length >= 1 || status.length >= 1 || gender.length >= 1) &&
-        } */}
-      <div className='content_filters--filters'>
-        { status && <button className='btn-filyrt_actives--filters' onClick={() => setStatus('')}>{ status }</button> }
-        { specie && <button className='btn-filyrt_actives--filters' onClick={() => setSpecie('')}>{ specie }</button> }
-        { gender && <button className='btn-filyrt_actives--filters' onClick={() => setGenre('')}>{ gender }</button> }
-        
-        <button onClick={onCleanFilters }> Clean filters </button>
-      </div>
+      {
+        (status.length || specie.length || gender.length) ? (<div className='content_filters--filters'>
+          <div className='disable-filters_actives--filters'></div>
+          <div className='container-filters_actives--filters'>
+            {status && <button className='btn-filters_actives--filters' onClick={() => setStatus('')}>{status}</button>}
+            {specie && <button className='btn-filters_actives--filters' onClick={() => setSpecie('')}>{specie}</button>}
+            {gender && <button className='btn-filters_actives--filters' onClick={() => setGenre('')}>{gender}</button>}
+          </div>
+          <div className='container-btn-clean-filters_actives--filters'>
+            <button className='btn-clean-filters_actives--filters' onClick={onCleanFilters}> X </button>
+          </div>
+        </div>) : null
+      }
     </div>
   );
 };

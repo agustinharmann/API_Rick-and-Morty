@@ -1,5 +1,3 @@
-@import './styles.mobile.css';
-
 .menu {
   max-width: 600px;
   width: 100%;
@@ -34,7 +32,7 @@
   position: relative;
 }
 
-.element_search--dropdown:hover > .dropdown {
+.element_search--dropdown:hover>.dropdown {
   display: block;
 }
 
@@ -46,56 +44,79 @@
 .active {
   background-color: #080808;
 }
-/* @media only screen and (max-width: 765px) {
-  .menu {
-    display: none;
-  }
-} */
-
-
 
 .dropdown {
   width: auto;
   height: auto;
+  padding: 4px 2px;
   color: #080808;
-  /* border: 1px solid black; */
   background-color: #FFFFFF;
+  border-radius: 4px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   position: absolute;
   top: 35px;
   left: 30px;
-  border-radius: 4px;
-  box-shadow: 0px 1px 4px black;
   z-index: 1;
   display: none;
 }
 
 .element--dropdown {
   width: 100%;
-  height: auto;
+  height: 30px;
   font-size: 18px;
-  margin: 4px 0px;
-  padding: 0px 8px 0px 4px;
+  padding: 0px 10px 0px 4px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
   cursor: pointer;
 }
 
 .element--dropdown:hover {
-  background-color: #080808;
+  background-color: #555555;
   color: #FFFFFF;
+  transition-duration: 0.4s;
 }
 
 .content_filters--filters {
   width: 100%;
   height: 40px;
-  margin-top: 8px;
+  margin-top: 20px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  border: 1px solid darkorange;
 }
 
-.btn-filyrt_actives--filters {
+.disable-filters_actives--filters {
+  width: 40px;
+  height: 40px;
+}
+
+
+.btn-filters_actives--filters {
+  width: auto;
+  height: 40px;
+  margin: 0px 4px;
+  padding: 0px 20px;
+  border: 1px solid #FFFFFF;
+  background: none;
+  color: #FFFFFF;
+  transition-duration: 0.2s;
+}
+
+.btn-filters_actives--filters:hover {
+  color: #080808;
+  background-color: #FFFFFF;
+  border: 1px solid #080808;
+  cursor: pointer;
+}
+
+.container-btn-clean-filters_actives--filters {
   width: auto;
   height: auto;
-  padding: 4px;
-  margin: 4px;
+}
+
+.btn-clean-filters_actives--filters {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
 }

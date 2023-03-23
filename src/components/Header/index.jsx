@@ -9,29 +9,26 @@ import './styles.css';
 
 const Header = () => {
 
-  const { getDrop, navigator } = useContext(UserContext);
+  const { windowWidth, toggleMenu } = useContext(UserContext);
 
   return (
     <div className='header'>
-      {/* -20px a input header */}
+
       <Link to="/" className='container_logo--header'>
         <img className='logo--header' src={logo_header} alt='Logo App' />
       </Link>
 
       <div className='search--header'>
-        {navigator === 'Home' && <Navbar />}
-      </div>
-      {/* pasar este ternario al componente navbar, q el condicional sea alla, hacia el form */}
-
-      <div className='container_icon-menu--header'>
-        <CgMenu className='icon_menu--header' onClick={getDrop} />
+        <Navbar />
       </div>
 
-
-      {/* <div className='menu--header'>
-        <Menu />
-      </div> */}
-      {/* .menu--header en el css de header */}
+      <div className='container-btn-menu--header'>
+        {windowWidth <= 768 && (
+          <div className='btn-menu--header' onClick={toggleMenu}>
+            <CgMenu className='icon_menu--header' />
+          </div>
+        )}
+      </div>
 
     </div>
   );

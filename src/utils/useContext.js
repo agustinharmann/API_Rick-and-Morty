@@ -7,13 +7,34 @@ const UserProvider = ({ children }) => {
 
   //pasar a funcion donde despues de api (setApi()) reciba el parametro de lo que queremos mostrar
   const [loading, setLoading] = useState(true);
-  const [ error, setError ] = useState(false)
+  const [error, setError] = useState(false)
   const [data, setData] = useState([]);
   const [name, setName] = useState('');
   const [status, setStatus] = useState('');
   const [gender, setGenre] = useState('');
   const [specie, setSpecie] = useState('');
   const [navigator, setNavigator] = useState('');
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+      if (window.innerWidth > 768) {
+        setMenuOpen(true);
+      } else {
+        setMenuOpen(false);
+      }
+    }
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    }
+  }, []);
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  }
 
   // const [api, setApi] = useState(`https://rickandmortyapi.com/api/character/?name=${name}&${status}&${specie}&${gender}`);
   const [api, setApi] = useState(`https://rickandmortyapi.com/api/character`);
@@ -26,7 +47,7 @@ const UserProvider = ({ children }) => {
   // status.length >= 1 && console.log('status: si');
   // specie.length >= 1 && console.log('species: si');
 
-  
+
   // agregar q x default ese en home
   // const [drop, setDrop] = useState(false);
 
@@ -113,8 +134,15 @@ const UserProvider = ({ children }) => {
         input_search,
         name,
         getByName,
+
+
+        windowWidth,
+        toggleMenu,
+        menuOpen,
+
         setNavigator,
         navigator,
+
         specie,
         status,
         gender,

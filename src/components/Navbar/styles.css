@@ -3,28 +3,23 @@
   height: auto;
   display: flex;
   align-items: center;
-  /* justify-content: center; */
   flex-direction: column;
-  border: none;
-  /* border: 2px solid red; */
 }
 
 .form_navbar--header {
   width: 100%;
   max-width: 600px;
-  height: auto;
+  height: 50px;
   padding: 10px;
-  margin-bottom: 10px;
   border-radius: 4px;
   display: flex;
   align-items: center;
   background-color: #EFEFEF;
-  /* border: 4px solid green; */
 }
 
 .input_navbar--header {
   width: 100%;
-  height: 30px;
+  height: 100%;
   display: flex;
   padding-left: 8px;
   border: none;
@@ -39,31 +34,31 @@
   height: 30px;
   border: none;
   border-left: 1px solid rgb(192, 192, 192);
+  display: flex;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
 }
 
 .menu--header {
   width: 100%;
   height: auto;
-  /* margin-top: 20px; */
+  margin-top: 20px;
   display: flex;
   justify-content: center;
-  /* border: 4px solid darkorange; */
-  
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 769px) {
 
   .form_navbar--header {
-    margin-bottom: 0px;
-  }
-  
-  .input_navbar--header {
-    height: 20px;
+    max-width: 400px;
+    height: 40px;
+    padding: 4px;
   }
 
   .btn_navbar--header {
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
   }
+
 }
