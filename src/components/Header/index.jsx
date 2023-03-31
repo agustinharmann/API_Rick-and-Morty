@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import logo_header from '../../assets/logo_header.jpg';
 import { CgMenu } from 'react-icons/cg';
 import { Navbar } from '../Navbar';
-// import { Menu } from '../Menu';
 import './styles.css';
 
 const Header = () => {

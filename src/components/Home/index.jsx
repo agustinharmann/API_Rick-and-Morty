@@ -3,7 +3,8 @@ import { RxDoubleArrowLeft } from 'react-icons/rx';
 import { RxDoubleArrowRight } from 'react-icons/rx';
 import { UserContext } from '../../utils/useContext';
 import { Error } from '../Error';
-import { Menu } from '../Menu';
+import { Filters } from '../Filters';
+import { FiltersActives } from '../FiltersActives';
 import { Results } from '../Results';
 
 import './styles.css';
@@ -11,11 +12,9 @@ import './styles.css';
 
 const Home = () => {
 
-  const { data, loading, prevPage, nextPage, setNavigator, windowWidth, menuOpen, error } = useContext(UserContext);
-  const { info } = data;
+  const { status, specie, gender, data, loading, prevPage, nextPage, setNavigator, windowWidth, filtersOpen, error } = useContext(UserContext);
 
-  // const medidas = window.screen.width;
-  // console.log(medidas);
+  const { info } = data;
 
   useEffect(() => {
     setNavigator('Home')
@@ -25,25 +24,29 @@ const Home = () => {
     return <div>Cargando...</div>;
   }
 
+  filtersOpen && windowWidth < 768 ? document.body.classList.add('noscroll') : document.body.classList.remove('noscroll')
+
   return (
     <div className='home'>
       {error && <Error />}
-      {menuOpen && windowWidth < 768 ?
-        <div className='menu--header'>
-          {/* VER POR QUE ROMPE EL CSS (SERA XQ AL APARECER EN HOME ESTA MAS ABAJO), CAMBIAR EL NOMBRE DE LA CLASE "MENU--HEADER" A "MENU HOME" Y REVEER LA LOGICA DEL "menuOpen && windowWidth < 768" ACA Y EL "windowWidth > 768" DE ALLA */}
-          <Menu />
+      {/* sera el catch como en movies */}
+      {filtersOpen && windowWidth < 768 ?
+        <div className='container--filters'>
+          <Filters />
         </div>
         : null}
+        {/* podria haber una validacion de que si esta abierto el componente filtros desaparezca esto */}
+      {(status.length || specie.length || gender.length)? <FiltersActives /> :
+        null
+      }
       <Results />
       <div className='pagination__home'>
-        {/* AGREGAR CONDICIONAL PARA LOS BOTONES SINO ROMPE CUANDO SE BUSCA CUANDO ALGO NO EXISTE */}
+        {/* AGREGAR CONDICIONAL PARA LOS BOTONES SINO ROMPE CUANDO SE BUSCA CUANDO ALGO NO EXISTE O HACER QUE SIEMPRE EL CATCH LANCE COMPONENTE ERROR*/}
         <button
           className={info.prev ? 'btn_prev--pagination_home' : 'btn_prev--pagination_home__disable'}
           onClick={prevPage}>
           <RxDoubleArrowLeft className='prev_doble_arrow--pagination_home' />
         </button>
-
-        {/* <div className='status--pagination'></div> */}
 
         <button
           className={info.next ? 'btn_next--pagination_home' : 'btn_next--pagination_home__disable'}

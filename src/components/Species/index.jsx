@@ -6,18 +6,14 @@ const Species = () => {
 
   const { setNavigator } = useContext(UserContext);
 
-   // "Human", "Alien", "Humanoid",
-  //   "Poopybutthole", "Mythological", "Unknown",
-  //   "Animal", "Disease","Robot","Cronenberg","Planet"
-
-  useEffect( () => {
+  useEffect(() => {
     setNavigator('Species')
-  }, [setNavigator] )
-  return(
+  }, [setNavigator])
+  return (
     <div>
       Species
     </div>
   );
 };
 
-export {Species};
+export { Species };

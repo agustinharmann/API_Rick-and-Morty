@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { BsSearch } from 'react-icons/bs';
 import { UserContext } from '../../utils/useContext';
-import { Menu } from '../Menu';
+import { Filters } from '../Filters';
 import './styles.css';
 
 
@@ -31,14 +31,14 @@ const Navbar = () => {
         </button>
       </form>
 
-      
+
       {windowWidth > 768 ?
-        <div className='menu--header'>
-          <Menu />
+        <div className='container--filters'>
+          <Filters />
         </div>
         : null}
 
-        
+
     </div>
   );
 };

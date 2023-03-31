@@ -1,0 +1,153 @@
+.filters {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.list--filters {
+  width: auto;
+  height: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.element--filter {
+  width: auto;
+  height: 100%;
+  /* position: relative; */
+  /* display: flex;
+  align-items: center; */
+  margin: 4px;
+  border: 1px solid orange;
+}
+
+.ahhhh {
+  height: 100%;
+  width: auto;
+  padding: 0px 10px;
+  display: flex;
+  align-items: center;
+}
+
+.title--dropdown {
+  font-size: 30px;
+  color: orange;
+}
+
+.section--filter {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+  /* align-items: center; */
+}
+
+.name--filter {
+  font-size: 20px;
+  margin: 2px;
+  margin-right: 12px;
+  color: #FFFFFF;
+}
+
+.btn--filter {
+  width: auto;
+  height: auto;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  cursor: pointer;
+}
+
+.container-dropdown--filters {
+  width: auto;
+  height: auto;
+  margin: 0px 10px;
+  padding: 10px;
+  /* position: absolute; */
+  background-color: #FFFFFF;
+  border-radius: 5px;
+  display: flex;
+  /* flex-direction: column; */
+  flex-wrap: wrap;
+  box-shadow: 0px 10px 10px rgb(43, 42, 42);
+}
+
+.element--dropdown {
+  width: auto;
+  height: auto;
+  padding: 8px;
+  margin: 4px;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.element--dropdown:hover {
+  background-color: #555555;
+  color: #FFFFFF;
+  transition-duration: 0.4s;
+}
+
+.disable {
+  display: none;
+}
+
+
+@media only screen and (max-width: 769px) {
+
+  .filters {
+    height: 100%;
+    max-width: 100%;
+    /* position: absolute; */
+    background-color: black;
+  }
+
+  .list--filters {
+    width: 100%;
+    height: auto;
+    padding: 0px 8px;
+    flex-direction: column;
+  }
+
+  .element--filter {
+    width: 100%;
+    height: auto;
+    margin: 10px 2px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #FFFFFF;
+  }
+
+  .element--filter:first-child {
+    margin-bottom: 0px;
+    border: none;
+  }
+
+  .section--filter {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .title--dropdown {
+    font-size: 40px;
+  }
+
+  .name--filter {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .container-dropdown--filters {
+    margin: 10px;
+    padding: 5px;
+    box-shadow: 0px 1px 10px rgb(116, 116, 116);
+  }
+
+}

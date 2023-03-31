@@ -14,16 +14,16 @@ const UserProvider = ({ children }) => {
   const [gender, setGenre] = useState('');
   const [specie, setSpecie] = useState('');
   const [navigator, setNavigator] = useState('');
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [filtersOpen, setFiltersOpen] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   useEffect(() => {
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
       if (window.innerWidth > 768) {
-        setMenuOpen(true);
+        setFiltersOpen(true);
       } else {
-        setMenuOpen(false);
+        setFiltersOpen(false);
       }
     }
     window.addEventListener('resize', handleResize);
@@ -33,24 +33,30 @@ const UserProvider = ({ children }) => {
   }, []);
 
   const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
+    setFiltersOpen(!filtersOpen);
   }
+
+  // al dar enter o click en search close de filters
+
+  // scrll top
+
+  // validacio de no scroll solo en responsive
+
+  // poder hacer que al width dejar de ser responsive hacer que ese estado devuelva o active eso
+
+  // cambiar el className de menu a filters del componente header
+
+  // buscar y eliminar componente por componente los navigators y setNavigators que no se utilizan
+
+  // contenedor del menu en Navbar, propiedades del menu en el menu
+
+  // acomodar los componentes del menu y sus csss
 
   // const [api, setApi] = useState(`https://rickandmortyapi.com/api/character/?name=${name}&${status}&${specie}&${gender}`);
   const [api, setApi] = useState(`https://rickandmortyapi.com/api/character`);
 
-  // console.log(navigator);
-  // console.log(gender);
-  // console.log(status);
-  // console.log(specie);
-  // gender.length >= 1 && console.log('gender: si');
-  // status.length >= 1 && console.log('status: si');
-  // specie.length >= 1 && console.log('species: si');
-
-
   // agregar q x default ese en home
   // const [drop, setDrop] = useState(false);
-
 
   // const [ fetch, setFetch ] = useState()
 
@@ -77,14 +83,6 @@ const UserProvider = ({ children }) => {
     fetchData()
   }, [api]);
 
-  // const getByName = async (e) => {
-  //   e.preventDefault();
-  //   const resp = await fetch(`https://rickandmortyapi.com/api/character/?name=${name}&status=${status}&species=${specie}&gender=${gender}`);
-  //   const data = await resp.json();
-  //   setData(data);
-  //   console.log(resp);
-  // }
-
   const getByName = async (e) => {
     e.preventDefault();
     try {
@@ -101,10 +99,6 @@ const UserProvider = ({ children }) => {
     }
   }
 
-  // const getDrop = () => {
-  //   setDrop(!drop)
-  // }
-
   const prevPage = () => {
     info.prev && setApi(info.prev);
   };
@@ -118,14 +112,6 @@ const UserProvider = ({ children }) => {
 
   // VER SI SE PUEDE TRAER EL FECTH COMO HOOK O COMO HELPER
 
-
-  // const [ width, setWidth ] = useState(0);
-
-  // useEffect(()=>{
-  //   setWidth(window.innerWidth)
-  // }, [])
-  // console.log(width);
-
   return (
     <UserContext.Provider
       value={{
@@ -138,7 +124,7 @@ const UserProvider = ({ children }) => {
 
         windowWidth,
         toggleMenu,
-        menuOpen,
+        filtersOpen,
 
         setNavigator,
         navigator,
@@ -151,8 +137,6 @@ const UserProvider = ({ children }) => {
         setGenre,
         error,
         setError,
-        // drop,
-        // getDrop,
         prevPage,
         nextPage
       }}
