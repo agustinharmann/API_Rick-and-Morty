@@ -1,11 +1,12 @@
 import React, { useState, useContext } from 'react';
-import { BsChevronDown } from 'react-icons/bs';
-import { UserContext } from '../../utils/useContext';
+import { UserContext } from '../../useContext/useContext';
 import { FiltersActives } from '../FiltersActives';
+import { BsChevronDown } from 'react-icons/bs';
+import { IoMdClose } from 'react-icons/io'
 import './styles.css';
 
 const Filters = () => {
-  const { filtersOpen, windowWidth, status, specie, gender, setStatus, setSpecie, setGenre } = useContext(UserContext);
+  const { filtersOpen, windowWidth, status, specie, gender, setStatus, setSpecie, setGender, dropFilters, setApi } = useContext(UserContext);
 
   const characterStatus = ['Alive', 'Dead', 'Unknow'];
 
@@ -30,9 +31,15 @@ const Filters = () => {
   return (
     <div className='filters'>
       <ul className='list--filters'>
-
         <li className='element--filter'>
           <div className='ahhhh'>
+            {(filtersOpen && windowWidth < 768) && (<div className='container-btn-menu--header'>
+              {windowWidth <= 768 && (
+                <div className='btn-menu--header' onClick={dropFilters}>
+                  <IoMdClose className='icon_menu--header' />
+                </div>
+              )}
+            </div>)}
             <p className='title--dropdown'>Filters</p>
           </div>
         </li>
@@ -41,19 +48,22 @@ const Filters = () => {
             <div className='section--filter'>
               {/* hacer efecto lento para el boton */}
               <p className='name--filter'>Status</p>
-              <div className='btn--filter' onClick={() => toggleMenu('menu1')}>
+              <div className='btn--filter' onClick={() => {
+                toggleMenu('menu1');
+              }}>
                 <BsChevronDown />
               </div>
             </div>
           </div>
-          <ul className={`${menuState.menu1 ? 'container-dropdown--filters' : 'disable'}`}>
+          {menuState.menu1 ? <ul className='container-dropdown--filters'>
             {
               characterStatus.map((s, i) => <li key={i} className='element--dropdown' onClick={() => {
+                setApi('https://rickandmortyapi.com/api/character/?page=1')
                 setStatus(`${s}`)
                 toggleMenu('menu1')
               }}> {s} </li>)
             }
-          </ul>
+          </ul> : null}
 
         </li>
 
@@ -61,41 +71,47 @@ const Filters = () => {
           <div className='ahhhh'>
             <div className='section--filter'>
               <p className='name--filter'>Species</p>
-              <div className='btn--filter' onClick={() => toggleMenu('menu2')}>
+              <div className='btn--filter' onClick={() => {
+                toggleMenu('menu2');
+              }}>
                 <BsChevronDown />
               </div>
             </div>
           </div>
-          <ul className={`${menuState.menu2 ? 'container-dropdown--filters' : 'disable'}`}>
+          {menuState.menu2 ? <ul className='container-dropdown--filters'>
             {
               characterSpecie.map((s, i) => <li key={i} className='element--dropdown' onClick={() => {
+                setApi('https://rickandmortyapi.com/api/character/?page=1')
                 setSpecie(`${s}`)
                 toggleMenu('menu2')
               }}> {s} </li>)
             }
-          </ul>
+          </ul> : null}
         </li>
         <li className='element--filter'>
           <div className='ahhhh'>
             <div className='section--filter'>
               <p className='name--filter'>Gender</p>
-              <div className='btn--filter' onClick={() => toggleMenu('menu3')}>
+              <div className='btn--filter' onClick={() => {
+                toggleMenu('menu3');
+              }}>
                 <BsChevronDown />
               </div>
             </div>
           </div>
-          <ul className={`${menuState.menu3 ? 'container-dropdown--filters' : 'disable'}`}>
+          {menuState.menu3 ? <ul className='container-dropdown--filters'>
             {
               characterGender.map((s, i) => <li key={i} className='element--dropdown' onClick={() => {
-                setGenre(`${s}`)
+                setApi('https://rickandmortyapi.com/api/character/?page=1')
+                setGender(`${s}`)
                 toggleMenu('menu3')
               }
               }> {s} </li>)
             }
-          </ul>
+          </ul> : null}
         </li>
       </ul>
-      {(status.length || specie.length || gender.length) && (filtersOpen && windowWidth < 768)  ? <FiltersActives /> :
+      {(status.length || specie.length || gender.length) && (filtersOpen && windowWidth < 768) ? <FiltersActives /> :
         null
       }
     </div>

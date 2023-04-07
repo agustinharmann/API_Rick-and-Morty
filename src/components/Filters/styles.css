@@ -22,6 +22,7 @@
   align-items: center; */
   margin: 4px;
   border: 1px solid orange;
+  border-radius: 2px;
 }
 
 .ahhhh {
@@ -92,10 +93,6 @@
   transition-duration: 0.4s;
 }
 
-.disable {
-  display: none;
-}
-
 
 @media only screen and (max-width: 769px) {
 
@@ -113,6 +110,10 @@
     flex-direction: column;
   }
 
+  .container-dropdown--filters {
+    justify-content: center;
+  }
+
   .element--filter {
     width: 100%;
     height: auto;
@@ -125,6 +126,10 @@
   .element--filter:first-child {
     margin-bottom: 0px;
     border: none;
+  }
+  
+  .ahhhh {
+    padding: 0px;
   }
 
   .section--filter {

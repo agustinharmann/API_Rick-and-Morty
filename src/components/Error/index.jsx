@@ -1,12 +1,15 @@
-import { useContext } from "react";
-import { UserContext } from "../../utils/useContext";
+import React from 'react';
+import './styles.css';
 
 const Error = () => {
-  const { error, setError } = useContext(UserContext);
+
   return (
-    <div>
-      erroooooooorrrrrrrrr
-      <button onClick={() => setError(!error)}>x</button>
+    <div className='error'>
+      <div className='message-error--error'>
+        <p className='txt--error'>
+          No results were found with these values.
+        </p>
+      </div>
     </div>
   )
 }
