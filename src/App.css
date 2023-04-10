@@ -1,4 +1,27 @@
 .App {
   width: 100%;
   height: auto;
+  /* min-height: 100vh; */
+  display: flex;
+  justify-content: center;
+}
+
+.container--filters {
+  width: 100%;
+  height: auto;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+/* ver de cambiar la palabra menu */
+/* ESTO QUIZAS SOLO PASA A COMPONENTE HEADER SI DEJA DE HACER FALTA EN FILTERS */
+
+@media only screen and (max-width: 768px) {
+
+  .container--filters {
+    height: 100vh;
+    margin-top: 0px;
+  }
+
 }

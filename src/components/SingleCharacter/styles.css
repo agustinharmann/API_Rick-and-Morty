@@ -35,7 +35,9 @@
 
 .img--single-character{
   width: 100%;
+  max-width: 300px;
   height: 100%;
+  max-height: 300px;
   border-radius: 15px;
   object-fit: contain;
   border: 2px solid orange;
@@ -66,7 +68,7 @@
   color: #FFFFFF;
 }
 
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 768px) {
 
   .icon-back_home--single-character {
     margin: 10px;
@@ -77,8 +79,8 @@
   }
 
   .cotainer-img--single-character {
-    min-width: 190px;
-    max-width: 300px;
+    min-width: 200px;
+    min-height: 200px;
     padding: 2px;
   }
 

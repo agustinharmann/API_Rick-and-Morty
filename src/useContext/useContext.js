@@ -1,5 +1,5 @@
 import { createContext, useState, useEffect, useCallback } from 'react';
-import {URL_API} from '../utils/constants';
+import { URL_API } from '../utils/constants';
 
 const UserContext = createContext();
 
@@ -8,7 +8,6 @@ const UserProvider = ({ children }) => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
-  // const [navigator, setNavigator] = useState(''); futura funcionalidad
   const [filtersOpen, setFiltersOpen] = useState(false);
   const [singleCharacter, setSingleCharacter] = useState('');
   const [error, setError] = useState(false);
@@ -44,7 +43,7 @@ const UserProvider = ({ children }) => {
     e.preventDefault();
   };
 
-  const input_search = ({ target }) => {
+  const onInputChange = ({ target }) => {
     let searchName = target.value;
     setInputValue(searchName);
     setName('');
@@ -60,9 +59,10 @@ const UserProvider = ({ children }) => {
 
   useEffect(() => {
     getResults();
-  }, [getResults]);
+    console.log(api);
+  }, [getResults, api]);
 
-  const { info } = data;
+  const { info, results } = data;
 
   const prevPage = () => {
     info.prev && setApi(info.prev);
@@ -84,7 +84,7 @@ const UserProvider = ({ children }) => {
     const windowResize = () => {
 
       setWindowWidth(window.innerWidth);
-      if (window.innerWidth > 768) {
+      if (window.innerWidth > 800) {
         setFiltersOpen(true);
       } else {
         setFiltersOpen(false);
@@ -109,15 +109,39 @@ const UserProvider = ({ children }) => {
   filtersOpen && windowWidth < 768 ? document.body.classList.add('noscroll') : document.body.classList.remove('noscroll');
 
 
+
+  const characterStatus = ['Alive', 'Dead', 'Unknow'];
+
+  const characterSpecie = ['Human', 'Alien', 'Humanoid', 'Poopybutthole', 'Mythological', 'Unknown', 'Animal', 'Disease', 'Robot', 'Cronenberg', 'Planet'];
+
+  const characterGender = ['Female', 'Male', 'Genderless', 'Unknow'];
+
+  const [dropdownState, setDropdownState] = useState({
+    dropdown1: false,
+    dropdown2: false,
+    dropdown3: false
+  });
+
+  const toggleDropdown = (stringParam) => {
+    setDropdownState(prevState => ({
+      dropdown1: stringParam === 'dropdown1' && !prevState.dropdown1,
+      dropdown2: stringParam === 'dropdown2' && !prevState.dropdown2,
+      dropdown3: stringParam === 'dropdown3' && !prevState.dropdown3
+    }));
+  };
+
   // console.log(name);
   return (
     <UserContext.Provider
-    // exportar info y result de data
+      // exportar info y result de data
       value={{
+        URL_API,
         data,
+        info,
+        results,
         setApi,
         loading,
-        input_search,
+        onInputChange,
         name,
         setName,
         inputValue,
@@ -138,7 +162,12 @@ const UserProvider = ({ children }) => {
         singleCharacter,
         // ver si esto es incesario y se puede borrar
         handleSubmit,
-        onCleanFilters
+        onCleanFilters,
+        characterStatus,
+        characterSpecie,
+        characterGender,
+        dropdownState,
+        toggleDropdown
       }}
     >
       {children}

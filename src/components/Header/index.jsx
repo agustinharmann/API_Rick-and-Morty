@@ -1,30 +1,37 @@
 import React, { useContext } from 'react';
+import { UserContext } from '../../useContext/useContext';
 import { Link } from 'react-router-dom';
 import logo_header from '../../assets/logo_header.jpg';
 import { Navbar } from '../Navbar';
 import { CgMenu } from 'react-icons/cg';
+import { TiArrowForwardOutline } from 'react-icons/ti';
 import './styles.css';
-import { UserContext } from '../../useContext/useContext';
 
 const Header = () => {
 
-  const { windowWidth, dropFilters, scrollTo } = useContext(UserContext);
+  const { windowWidth, filtersOpen, dropFilters, scrollTo } = useContext(UserContext);
 
   return (
     <div className='header'>
-      <Link to='/' className='container_logo--header'>
-        <img className='logo--header' src={logo_header} alt='Logo App' />
+      <Link to='/' className='container-logo--header'>
+        <img className='logo--header'
+          src={logo_header}
+          alt='Logo App'
+        />
       </Link>
-      <div className='search--header'>
+      <div className='container-navbar--header'>
         <Navbar />
       </div>
-      <div className='container-btn-menu--header'>
-        {windowWidth <= 768 && (
-          <div className='btn-menu--header' onClick={() => {
-            scrollTo();
-            dropFilters();
-          }}>
-            <CgMenu className='icon_menu--header' />
+      <div className='container-btn-state_filters--header'>
+        {(windowWidth <= 768) && (
+          <div className='btn-state_filters--header'
+            onClick={() => {
+              scrollTo();
+              dropFilters();
+            }}>
+            {filtersOpen ?
+              <TiArrowForwardOutline className='icon-btn-state_filters--header' />
+              : <CgMenu className='icon-btn-state_filters--header' />}
           </div>
         )}
       </div>

@@ -1,4 +1,4 @@
-.content_filters--filters {
+.filters-actives {
   width: 100%;
   max-width: 600px;
   min-height: 40px;
@@ -9,23 +9,17 @@
   align-items: center;
 }
 
-.disable-filters_actives--filters {
-  width: 40px;
-  height: 40px;
+.empty_space--filters-actives {
+  min-width: 40px;
+  min-height: 40px;
 }
 
-.container-btn-clean-filters_actives--filters {
+.container-selected--filters-actives {
   width: auto;
   height: auto;
 }
 
-.btn-clean-filters_actives--filters {
-  width: 40px;
-  height: 40px;
-  cursor: pointer;
-}
-
-.btn-filters_actives--filters {
+.selected--filters-actives {
   width: auto;
   height: 40px;
   margin: 4px;
@@ -36,20 +30,42 @@
   transition-duration: 0.2s;
 }
 
-.btn-filters_actives--filters:hover {
+.selected--filters-actives:hover {
   color: #080808;
   background-color: #FFFFFF;
   border: 1px solid #080808;
   cursor: pointer;
 }
 
-@media only screen and (max-width: 769px) {
+.container-btn-clean--filters-actives {
+  width: auto;
+  height: auto;
+}
 
-  .content_filters--filters  {
+.btn-clean--filters-actives {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.icon-clean-selected--filters-actives {
+  cursor: pointer;
+  width: 100%;
+  height: auto;
+  color: #363535;
+}
+
+@media only screen and (max-width: 768px) {
+
+  .filters-actives  {
     padding-top: 0px;
   }
 
-  .btn-filters_actives--filters {
+  .empty_space--filters-actives {
+    display: none;
+  }
+
+  .selected--filters-actives {
     color: #080808;
     background-color: #FFFFFF;
   }

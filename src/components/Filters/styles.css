@@ -17,15 +17,12 @@
 .element--filter {
   width: auto;
   height: 100%;
-  /* position: relative; */
-  /* display: flex;
-  align-items: center; */
-  margin: 4px;
-  border: 1px solid orange;
-  border-radius: 2px;
+  margin: 0px 4px;
+  border: 2px solid orange;
+  border-radius: 10px;
 }
 
-.ahhhh {
+.container-section--filters {
   height: 100%;
   width: auto;
   padding: 0px 10px;
@@ -33,47 +30,50 @@
   align-items: center;
 }
 
-.title--dropdown {
+.title--filters {
   font-size: 30px;
   color: orange;
 }
 
-.section--filter {
+.content-section--filter {
   width: 100%;
   height: auto;
+  cursor: pointer;
   display: flex;
   justify-content: space-between;
-  /* align-items: center; */
 }
 
-.name--filter {
+.name--filters {
   font-size: 20px;
   margin: 2px;
   margin-right: 12px;
   color: #FFFFFF;
 }
 
-.btn--filter {
+.btn--filters {
   width: auto;
   height: auto;
-  font-size: 20px;
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #FFFFFF;
-  cursor: pointer;
+  background-color: transparent;
+  border: none;
 }
 
-.container-dropdown--filters {
-  width: auto;
+.icon-btn--filters {
+  font-size: 20px;
+  color: #FFFFFF;
+}
+
+.dropdown--filters {
+  width: 100%;
   height: auto;
   margin: 0px 10px;
   padding: 10px;
-  /* position: absolute; */
   background-color: #FFFFFF;
   border-radius: 5px;
   display: flex;
-  /* flex-direction: column; */
   flex-wrap: wrap;
   box-shadow: 0px 10px 10px rgb(43, 42, 42);
 }
@@ -94,13 +94,12 @@
 }
 
 
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 768px) {
 
   .filters {
     height: 100%;
     max-width: 100%;
-    /* position: absolute; */
-    background-color: black;
+    background-color: #000000;
   }
 
   .list--filters {
@@ -108,10 +107,6 @@
     height: auto;
     padding: 0px 8px;
     flex-direction: column;
-  }
-
-  .container-dropdown--filters {
-    justify-content: center;
   }
 
   .element--filter {
@@ -127,29 +122,31 @@
     margin-bottom: 0px;
     border: none;
   }
-  
-  .ahhhh {
+
+  .container-section--filters {
     padding: 0px;
   }
 
-  .section--filter {
+  .content-section--filter {
     width: 100%;
     display: flex;
     justify-content: center;
   }
-  
-  .title--dropdown {
+
+  .title--filters {
     font-size: 40px;
   }
 
-  .name--filter {
+  .name--filters {
     height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
   }
 
-  .container-dropdown--filters {
+  .dropdown--filters {
+    width: auto;
+    justify-content: center;
     margin: 10px;
     padding: 5px;
     box-shadow: 0px 1px 10px rgb(116, 116, 116);

@@ -7,20 +7,20 @@ const Card = ({ results }) => {
   const { id, image, name } = results;
 
   return (
-    <Link to='/singleCharacter' state={{ id }} className='card'>
-      <div className='container_img--card'>
+    <Link to='/single-character' state={{ id }} className='card'>
+      <div className='container-img--card'>
         <img className='img--card' src={image} alt={name} />
       </div>
-      <div className='container_basic-info--card'>
-        <p className='info__card'>
+      <div className='container-info--card'>
+        <p className='content-info--card'>
           {name}
         </p>
-        <p className='info__card'>{results.status}</p>
-        <p className='info__card'>{results.species}</p>
-        <p className='info__card'>{results.gender}</p>
+        <p className='content-info--card'>{results.status}</p>
+        <p className='content-info--card'>{results.species}</p>
+        <p className='content-info--card'>{results.gender}</p>
         {/* MOMENTANEO CAMIO CONTANER A AUTO PARA LEER TODAS LAS PROPIEDADES */}
-        {/* <p className='info__card'>{results.gender}</p>
-        <p className='info__card'>{results.status}</p> */}
+        {/* <p className='content-info--card'>{results.gender}</p>
+        <p className='content-info--card'>{results.status}</p> */}
       </div>
     </Link>
   );

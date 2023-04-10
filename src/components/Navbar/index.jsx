@@ -1,44 +1,41 @@
 import React, { useContext } from 'react';
 import { UserContext } from '../../useContext/useContext';
-import { BsSearch } from 'react-icons/bs';
 import { Filters } from '../Filters';
+import { BsSearch } from 'react-icons/bs';
 import './styles.css';
 
 const Navbar = () => {
 
-  const { input_search, windowWidth, handleSubmit, setName, inputValue } = useContext(UserContext);
+  const { onInputChange, windowWidth, handleSubmit, setName, inputValue } = useContext(UserContext);
 
   return (
-    <div className='search_navbar--header'>
-      <form className='form_navbar--header' onSubmit={handleSubmit}>
+    <div className='navbar'>
+      <form className='search--navbar'
+        onSubmit={handleSubmit}
+      >
         <input
-          className='input_navbar--header'
+          className='input-search--navbar'
           type='text'
-          placeholder='Busca..'
+          placeholder='Search..'
           autoComplete='off'
           value={inputValue}
-
-          onChange={input_search}
-        // hacer q sea un setValor esta api nueva
-        // setname como el modal de error
+          onChange={onInputChange}
         />
         <button
-          className='btn_navbar--header'
+          className='btn-search--navbar'
           type='submit'
           onClick={() => setName(inputValue)}
         >
-          <BsSearch className='icon_search-navbar--header' />
+          <BsSearch className='icon-search--navbar' />
         </button>
       </form>
-      {windowWidth > 768 ?
-        <div className='container--filters'>
+      {(windowWidth > 768) ?
+        (<div className='container--filters'>
           <Filters />
-        </div>
-        : null}
-      {/* si el valor buscado no existe */}
+        </div>)
+        : (null)}
     </div>
   );
 };
 
 export { Navbar };
-
