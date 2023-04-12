@@ -28,8 +28,8 @@ const SingleCharacter = () => {
         </Link>
       </div>
       <div className='container-details--single-character'>
-        <div className='cotainer-img--single-character'>
-          <img className='img--single-character' src={image} alt={name} />
+        <div className='cotainer-image--single-character'>
+          <img className='image--single-character' src={image} alt={name} />
         </div>
         <div className='info-single-characters'>
           {(name) && (<p className='name-info--single-character'>{name}</p>)}

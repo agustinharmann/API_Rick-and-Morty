@@ -23,7 +23,7 @@
   justify-content: space-evenly;
 }
 
-.cotainer-img--single-character {
+.cotainer-image--single-character {
   width: 35%;
   min-width: 300px;
   height: auto;
@@ -33,7 +33,7 @@
   align-items: center;
 }
 
-.img--single-character{
+.image--single-character{
   width: 100%;
   max-width: 300px;
   height: 100%;
@@ -78,7 +78,7 @@
     flex-wrap: wrap;
   }
 
-  .cotainer-img--single-character {
+  .cotainer-image--single-character {
     min-width: 200px;
     min-height: 200px;
     padding: 2px;

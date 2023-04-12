@@ -1,3 +1,4 @@
+import React from 'react';
 import { useContext } from 'react';
 import { UserContext } from '../../useContext/useContext';
 import { FiltersActives } from '../FiltersActives';

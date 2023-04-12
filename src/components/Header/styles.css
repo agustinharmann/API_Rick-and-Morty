@@ -3,21 +3,15 @@
   height: auto;
   position: sticky;
   top: 0;
-  background-color: #161515;
   display: flex;
   justify-content: space-between;
-}
-
-.container-navbar--header {
-  width: 100%;
-  height: auto;
-  margin: 20px 0px;
+  background-color: #000000;
 }
 
 .container-logo--header {
   width: 50px;
   height: 50px;
-  margin: 20px;
+  margin: 15px;
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -34,7 +28,7 @@
   width: auto;
   min-width: 50px;
   height: 50px;
-  margin: 20px;
+  margin: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -46,28 +40,34 @@
 }
 
 .icon-btn-state_filters--header {
-  cursor: pointer;
   width: 100%;
   height: auto;
+  cursor: pointer;
   color: #FFFFFF;
 }
 
-@media only screen and (max-width: 768px) {
+.container-navbar--header {
+  width: 100%;
+  height: auto;
+  margin: 19px 0px 16px;
+}
 
+@media only screen and (max-width: 768px) {
+  
   .container-logo--header {
-    width: 35px;
-    height: 35px;
+    width: 42px;
+    height: 42px;
     margin: 20px 0px;
     margin-left: 10px;
   }
 
   .logo--header {
-    width: 35px;
-    height: 35px;
+    width: 42px;
+    height: 42px;
   }
   
   .container-navbar--header {
-    margin: 20px 15px;
+    margin: 20px 10px;
   }
 
   .container-btn-state_filters--header {

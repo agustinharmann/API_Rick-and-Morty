@@ -9,9 +9,8 @@
 .search--navbar {
   width: 100%;
   max-width: 600px;
-  height: 50px;
+  height: 45px;
   padding: 10px;
-  margin-bottom: 5px;
   border-radius: 4px;
   display: flex;
   align-items: center;
@@ -31,7 +30,7 @@
 }
 
 .btn-search--navbar {
-  width: 40px;
+  width: 35px;
   height: 100%;
   border: none;
   border-left: 1px solid rgb(192, 192, 192);
@@ -42,8 +41,8 @@
 }
 
 .icon-search--navbar {
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
   color: rgb(58, 56, 56);
 }
 

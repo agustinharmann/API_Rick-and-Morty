@@ -1,29 +1,25 @@
+import React from 'react';
 import { createContext, useState, useEffect, useCallback } from 'react';
 import { URL_API } from '../utils/constants';
-
-// backgrounds a filters actives
-// cambiar estilos del mensaje de error
 
 const UserContext = createContext();
 
 const UserProvider = ({ children }) => {
 
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  const [data, setData] = useState([]);
+  const [api, setApi] = useState(URL_API);
   const [loading, setLoading] = useState(true);
-  const [filtersOpen, setFiltersOpen] = useState(false);
-  const [singleCharacter, setSingleCharacter] = useState('');
-  const [error, setError] = useState(false);
+  const [data, setData] = useState([]);
   const [name, setName] = useState('');
   const [inputValue, setInputValue] = useState('');
   const [status, setStatus] = useState('');
   const [gender, setGender] = useState('');
   const [specie, setSpecie] = useState('');
-
-  const [api, setApi] = useState(URL_API);
+  const [singleCharacter, setSingleCharacter] = useState('');
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [filtersOpen, setFiltersOpen] = useState(false);
+  const [error, setError] = useState(false);
 
   const filtros = `name=${name}&status=${status}&species=${specie}&gender=${gender}`;
-
 
   const getResults = useCallback(async () => {
     try {
@@ -51,6 +47,7 @@ const UserProvider = ({ children }) => {
     setInputValue(searchName);
     setName('');
     setApi(URL_API);
+    toggleDropdown()
   };
 
   const getSingleCharacter = useCallback(async (id) => {
@@ -82,37 +79,6 @@ const UserProvider = ({ children }) => {
     setApi(URL_API);
   };
 
-  useEffect(() => {
-
-    const windowResize = () => {
-
-      setWindowWidth(window.innerWidth);
-      if (window.innerWidth > 800) {
-        setFiltersOpen(true);
-      } else {
-        setFiltersOpen(false);
-      }
-    };
-
-    window.addEventListener('resize', windowResize);
-    return () => {
-      window.removeEventListener('resize', windowResize);
-    };
-    // console.log(windowWidth);
-  }, []);
-
-  const dropFilters = () => {
-    setFiltersOpen(!filtersOpen);
-  };
-
-  const scrollTo = () => {
-    window.scrollTo(0, 0);
-  }
-
-  filtersOpen && windowWidth < 768 ? document.body.classList.add('noscroll') : document.body.classList.remove('noscroll');
-
-
-
   const characterStatus = ['Alive', 'Dead', 'Unknow'];
 
   const characterSpecie = ['Human', 'Alien', 'Humanoid', 'Poopybutthole', 'Mythological', 'Unknown', 'Animal', 'Disease', 'Robot', 'Cronenberg', 'Planet'];
@@ -133,19 +99,44 @@ const UserProvider = ({ children }) => {
     }));
   };
 
-  // console.log(name);
+  useEffect(() => {
+
+    const windowResize = () => {
+
+      setWindowWidth(window.innerWidth);
+      if (window.innerWidth > 800) {
+        setFiltersOpen(true);
+      } else {
+        setFiltersOpen(false);
+      }
+    };
+
+    window.addEventListener('resize', windowResize);
+    return () => {
+      window.removeEventListener('resize', windowResize);
+    };
+    
+  }, []);
+
+  const dropFilters = () => {
+    setFiltersOpen(!filtersOpen);
+  };
+
+  const scrollTo = () => {
+    window.scrollTo(0, 0);
+  }
+
+  filtersOpen && windowWidth < 768 ? document.body.classList.add('noscroll') : document.body.classList.remove('noscroll');
+
   return (
     <UserContext.Provider
-      // exportar info y result de data
       value={{
+        loading,
         URL_API,
-        data,
         info,
         results,
         setApi,
-        loading,
         onInputChange,
-        name,
         setName,
         inputValue,
         windowWidth,
@@ -163,7 +154,6 @@ const UserProvider = ({ children }) => {
         getSingleCharacter,
         scrollTo,
         singleCharacter,
-        // ver si esto es incesario y se puede borrar
         handleSubmit,
         onCleanFilters,
         characterStatus,
