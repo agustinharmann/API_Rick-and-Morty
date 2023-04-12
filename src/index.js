@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import { UserProvider } from './useContext/useContext';
+import App from './Pages/App/App.js';
 import reportWebVitals from './reportWebVitals';
-import { SingleCharacter } from './components/SingleCharacter';
+import { SingleCharacter } from './Pages/SingleCharacter';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

@@ -1,6 +1,9 @@
 import { createContext, useState, useEffect, useCallback } from 'react';
 import { URL_API } from '../utils/constants';
 
+// backgrounds a filters actives
+// cambiar estilos del mensaje de error
+
 const UserContext = createContext();
 
 const UserProvider = ({ children }) => {
