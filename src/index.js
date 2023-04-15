@@ -6,6 +6,7 @@ import { UserProvider } from './useContext/useContext';
 import App from './Pages/App/App.js';
 import reportWebVitals from './reportWebVitals';
 import { SingleCharacter } from './Pages/SingleCharacter';
+import { Footer } from './components/Footer';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -17,6 +18,7 @@ root.render(
           <Route path='single-character' element={<SingleCharacter />} />
           <Route path='/*' element={<Navigate to='/' />} />
         </Routes>
+        <Footer />
       </UserProvider>
     </BrowserRouter>
   </React.StrictMode>

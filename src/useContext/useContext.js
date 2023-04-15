@@ -59,8 +59,7 @@ const UserProvider = ({ children }) => {
 
   useEffect(() => {
     getResults();
-    console.log(api);
-  }, [getResults, api]);
+  }, [getResults]);
 
   const { info, results } = data;
 
@@ -88,14 +87,14 @@ const UserProvider = ({ children }) => {
   const [dropdownState, setDropdownState] = useState({
     dropdown1: false,
     dropdown2: false,
-    dropdown3: false
+    dropdown3: false,
   });
 
   const toggleDropdown = (stringParam) => {
     setDropdownState(prevState => ({
       dropdown1: stringParam === 'dropdown1' && !prevState.dropdown1,
       dropdown2: stringParam === 'dropdown2' && !prevState.dropdown2,
-      dropdown3: stringParam === 'dropdown3' && !prevState.dropdown3
+      dropdown3: stringParam === 'dropdown3' && !prevState.dropdown3,
     }));
   };
 
@@ -108,7 +107,7 @@ const UserProvider = ({ children }) => {
         setFiltersOpen(true);
       } else {
         setFiltersOpen(false);
-      }
+      };
     };
 
     window.addEventListener('resize', windowResize);

@@ -5,14 +5,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: #FFFFFF;
   background-color: #000000;
 }
 
 .container-section--footer {
   width: 100%;
   height: auto;
-  padding: 10px;
+  padding: 10px 0px;
   display: flex;
   border-top: 1px solid #ffa500;
 }
@@ -56,7 +55,7 @@
 @media only screen and (max-width: 768px) {
 
   .container-section--footer:first-child {
-    flex-direction: column;
+    flex-direction: column-reverse;
   }
 
   .column--footer {

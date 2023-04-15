@@ -4,13 +4,13 @@ import './styles.css';
 const Error = () => {
 
   return (
-    <div className='error'>
+    <article className='error'>
       <div className='message_error--error'>
         <p className='txt--error'>
           No results were found with these values.
         </p>
       </div>
-    </div>
+    </article>
   );
 };
 

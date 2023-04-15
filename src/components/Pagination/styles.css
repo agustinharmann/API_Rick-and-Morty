@@ -1,11 +1,11 @@
-.container-pagination--home {
+.pagination {
   width: auto;
   height: auto;
   padding: 10px;
   margin: 10px 0px 0px;
 }
 
-.btn_prev-pagination--home {
+.btn-prev--pagination {
   width: 40px;
   height: 30px;
   border: none;
@@ -14,7 +14,7 @@
   background-color: #B2B2B2;
 }
 
-.btn_next-pagination--home {
+.btn-next--pagination {
   width: 40px;
   height: 30px;
   border: none;
@@ -23,7 +23,7 @@
   background-color: #B2B2B2;
 }
 
-.icon-prev_pagination--home {
+.icon-prev--pagination {
   color: #2A2A2A;
 }
 
@@ -31,7 +31,7 @@
   color: #2A2A2A;
 }
 
-.btn_prev_disable-pagination--home {
+.btn-prev-disable--pagination {
   width: 40px;
   height: 30px;
   border: none;
@@ -40,7 +40,7 @@
   background-color: #494949;
 }
 
-.btn_next_disable-pagination--home {
+.btn-next-disable--pagination {
   width: 40px;
   height: 30px;
   border: none;

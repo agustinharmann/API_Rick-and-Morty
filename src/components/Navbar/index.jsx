@@ -9,7 +9,7 @@ const Navbar = () => {
   const { onInputChange, windowWidth, handleSubmit, setName, inputValue } = useContext(UserContext);
 
   return (
-    <div className='navbar'>
+    <nav className='navbar'>
       <form className='search--navbar'
         onSubmit={handleSubmit}
       >
@@ -34,7 +34,7 @@ const Navbar = () => {
           <Filters />
         </div>)
         : (null)}
-    </div>
+    </nav>
   );
 };
 

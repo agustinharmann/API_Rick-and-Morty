@@ -21,13 +21,13 @@ const SingleCharacter = () => {
   };
 
   return (
-    <div className='single-character'>
-      <div className='header--single-character'>
+    <article className='single-character'>
+      <header className='header--single-character'>
         <Link to='/'>
           <BsChevronLeft className='icon-back_home--single-character' />
         </Link>
-      </div>
-      <div className='container-details--single-character'>
+      </header>
+      <section className='container-details--single-character'>
         <div className='cotainer-image--single-character'>
           <img className='image--single-character' src={image} alt={name} />
         </div>
@@ -40,8 +40,8 @@ const SingleCharacter = () => {
           {(origin) && (<p className='txt-info--single-character'>Origin: {origin.name}</p>)}
           {(location) && (<p className='txt-info--single-character'>Location: {location.name}</p>)}
         </div>
-      </div>
-    </div>
+      </section>
+    </article>
   );
 };
 

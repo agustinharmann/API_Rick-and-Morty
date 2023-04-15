@@ -8,7 +8,7 @@ const FiltersActives = () => {
   const { status, specie, gender, setStatus, setSpecie, setGender, onCleanFilters } = useContext(UserContext);
 
   return (
-    <div className='filters-actives'>
+    <section className='filters-actives'>
       <div className='empty_space--filters-actives'></div>
       <div className='container-selected--filters-actives'>
         {(status) && (<button className='selected--filters-actives'
@@ -34,7 +34,7 @@ const FiltersActives = () => {
           <IoMdClose className='icon-clean-selected--filters-actives' />
         </button>
       </div>
-    </div>
+    </section>
   );
 };
 

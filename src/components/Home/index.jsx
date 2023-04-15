@@ -3,7 +3,6 @@ import { UserContext } from '../../useContext/useContext';
 import { Header } from '../Header';
 import { Filters } from '../Filters';
 import { Results } from '../Results';
-import { Footer } from '../Footer';
 import './styles.css';
 
 
@@ -25,7 +24,6 @@ const Home = () => {
         : (
           <Results />
         )}
-        <Footer />
     </div>
   );
 };

@@ -9,7 +9,7 @@ const Filters = () => {
   const { filtersOpen, windowWidth, status, specie, gender, setStatus, setSpecie, setGender, setApi, characterStatus, characterSpecie, characterGender, dropdownState, toggleDropdown, URL_API } = useContext(UserContext);
 
   return (
-    <div className='filters'>
+    <section className='filters'>
       <ul className='list--filters'>
         <li className='element--filter'>
           <div className='container-section--filters'>
@@ -97,8 +97,7 @@ const Filters = () => {
       {(status.length || specie.length || gender.length) && (filtersOpen && windowWidth < 768) ?
         <FiltersActives />
         : null}
-
-    </div>
+    </section>
   );
 };
 

@@ -13,24 +13,24 @@ const Pagination = () => {
   };
 
   return (
-    <div className='container-pagination--home'>
+    <section className='pagination'>
       <button
         className={(info.prev) ?
-          ('btn_prev-pagination--home')
-          : ('btn_prev_disable-pagination--home')}
+          ('btn-prev--pagination')
+          : ('btn-prev-disable--pagination')}
         onClick={prevPage}
       >
-        <RxDoubleArrowLeft className='icon-prev-pagination--home' />
+        <RxDoubleArrowLeft className='icon-prev--pagination' />
       </button>
       <button
         className={(info.next) ?
-          ('btn_next-pagination--home')
-          : ('btn_next_disable-pagination--home')}
+          ('btn-next--pagination')
+          : ('btn-next-disable--pagination')}
         onClick={nextPage}
       >
-        <RxDoubleArrowRight className='icon-next-pagination--home' />
+        <RxDoubleArrowRight className='icon-next--pagination' />
       </button>
-    </div>
+    </section>
   );
 };
 

@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { UserContext } from '../../useContext/useContext';
 import { Link } from 'react-router-dom';
-import logo_web from '../../assets/logo_web.jpg';
+import logo_web from '../../assets/logo_web.png';
 import { Navbar } from '../Navbar';
 import { CgMenu } from 'react-icons/cg';
 import { TiArrowForwardOutline } from 'react-icons/ti';
@@ -12,7 +12,7 @@ const Header = () => {
   const { windowWidth, filtersOpen, dropFilters, scrollTo } = useContext(UserContext);
 
   return (
-    <div className='header'>
+    <header className='header'>
       <Link to='/' className='container-logo--header'>
         <img className='logo--header'
           src={logo_web}
@@ -35,7 +35,7 @@ const Header = () => {
           </div>
         )}
       </div>
-    </div>
+    </header>
   );
 };
 

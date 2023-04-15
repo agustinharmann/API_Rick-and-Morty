@@ -12,25 +12,25 @@ const Results = () => {
   const { results, error, status, specie, gender, info } = useContext(UserContext);
 
   return (
-    <div className='results'>
+    <main className='results'>
       {(status.length || specie.length || gender.length) ?
         (<FiltersActives />)
         : (null)}
       {(error) ?
         (<Error />)
-        : <div className='container-cards--results'>
+        : <section className='container-cards--results'>
           {results.map((results, index) =>
             <div className='content-card--results'
               key={index}
             >
               <Card results={results} />
             </div>)}
-        </div>}
+        </section>}
       {
         (info.prev || info.next) && (!error) &&
         (<Pagination />)
       }
-    </div>
+    </main>
   );
 };
 
